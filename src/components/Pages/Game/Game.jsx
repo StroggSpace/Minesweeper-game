@@ -11,11 +11,14 @@ export default function Game() {
   const dispatch = useDispatch();
   const [start, setStart] = useState(false);
   const [matrix, setMatrix] = useState([]);
-  const [settings, setSettings] = useState({});
+  const [settings, setSettings] = useState(getCurrentSettings());
   const [isGameOver, setIsGameOver] = useState(false);
   const [isVictory, setIsVictory] = useState(false);
   // Проверка первого клика
   const [isFirstClick, setIsFirstClick] = useState(true);
+  //Установка таймера
+  const [seconds, setSeconds] = useState(0);
+  const settingsTime = getCurrentSettings().time;
 
   useEffect(() => {
     if (start && !isGameOver && !isVictory) {
@@ -30,15 +33,6 @@ export default function Game() {
       return () => clearInterval(interval);
     }
   }, [start, isGameOver, isVictory]);
-
-  //Получение настроек
-  useEffect(() => {
-    setSettings(getCurrentSettings());
-  }, []);
-
-  //Установка таймера
-  const [seconds, setSeconds] = useState(0);
-  const settingsTime = getCurrentSettings().time;
 
   const startGame = () => {
     setSeconds(0);
@@ -149,7 +143,9 @@ export default function Game() {
       {(!start && (
         <>
           <Settings onSettingsUpdated={onSettingsUpdated} />
-          <Button onClick={startGame}>{BTN_VARIANTS.start}</Button>
+          <Button className="game__button" onClick={startGame}>
+            {BTN_VARIANTS.start}
+          </Button>
         </>
       )) || (
         <div className="game__wrapper">
@@ -187,8 +183,12 @@ export default function Game() {
               </div>
             ))}
           </div>
-          <Button onClick={exitGame}>{BTN_VARIANTS.back}</Button>
-          <Button onClick={startGame}>{BTN_VARIANTS.reset}</Button>
+          <Button className="game__button" onClick={exitGame}>
+            {BTN_VARIANTS.back}
+          </Button>
+          <Button className="game__button" onClick={startGame}>
+            {BTN_VARIANTS.reset}
+          </Button>
         </div>
       )}
     </main>

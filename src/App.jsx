@@ -12,7 +12,7 @@ export default function App() {
     <div className="app-wrapper">
       <Header />
       <nav className="nav">
-        <Link to={`/leaderboard`}>{BTN_VARIANTS.leaderboard}</Link>
+        <Link className="nav__link" to={`/leaderboard`}>{BTN_VARIANTS.leaderboard}</Link>
       </nav>
 
       <Routes>

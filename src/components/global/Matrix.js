@@ -1,4 +1,4 @@
-import { getRandomNumber } from "../global/util";
+import { getRandomNumber } from "./util";
 
 export function createMatrix(width = 8, height = 8) {
   let matrix = Array.from({ length: height }, (_, y) =>

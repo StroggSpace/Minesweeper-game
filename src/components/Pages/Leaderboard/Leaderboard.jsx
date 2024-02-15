@@ -6,7 +6,7 @@ export default function Leaderboard() {
   const leadersData = useSelector((state) => state.leaders);
   return (
     <div className="leaderboard__container">
-      <h1>Лучшие из лучших</h1>
+      <h1 className="leaderboard__title">Лучшие из лучших</h1>
       <ol className="leaderboard__list">
         {leadersData.map((item, itemIndex) => (
           <li key={itemIndex} className="leaderboard__item">
@@ -14,7 +14,7 @@ export default function Leaderboard() {
           </li>
         ))}
       </ol>
-      <Link to={`/`}>{BTN_VARIANTS.back}</Link>
+      <Link className="leaderboard__link" to={`/`}>{BTN_VARIANTS.back}</Link>
     </div>
   );
 }

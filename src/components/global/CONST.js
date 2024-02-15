@@ -1,11 +1,11 @@
-const BTN_VARIANTS = {
+export const BTN_VARIANTS = {
   leaderboard: "Таблица лидеров",
   start: "Начать",
   reset: "Сброс",
   back: "Вернуться",
 };
 
-const CELL_STYLE = {
+export const CELL_STYLE = {
   hidden: "board__cell-hidden",
   question: "question",
   flagged: "flagged",
@@ -19,5 +19,3 @@ const CELL_STYLE = {
   7: "board__cell board__cell-seven",
   8: "board__cell board__cell-eight",
 };
-
-export { BTN_VARIANTS, CELL_STYLE };

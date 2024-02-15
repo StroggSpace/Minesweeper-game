@@ -2,12 +2,6 @@ import { useEffect, useState } from "react";
 import { CELL_STYLE } from "../global/CONST";
 
 export default function Cell(props) {
-  const [state, setState] = useState(props.cellData);
-
-  useEffect(() => {
-    setState(props.cellData);
-  }, [props.cellData]);
-
   const handleClick = () => {
     props.onCellClick(props.cellData.x, props.cellData.y);
   };

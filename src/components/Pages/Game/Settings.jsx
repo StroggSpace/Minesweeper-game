@@ -1,5 +1,4 @@
 import Button from "../../Button/Button";
-import { useState } from "react";
 
 export const EASY_FIELD = {
   width: 8,
@@ -29,20 +28,30 @@ export const HARD_FIELD = {
 //Если нет, то использую стандартные настройки
 
 export const getCurrentSettings = () => {
-  let settings = JSON.parse(localStorage.getItem("settings"));
-  if (!settings) {
-    settings = EASY_FIELD;
-    localStorage.setItem("settings", JSON.stringify(settings));
+  try {
+    let settings = JSON.parse(localStorage.getItem("settings"));
+    if (!settings) {
+      settings = EASY_FIELD;
+      localStorage.setItem("settings", JSON.stringify(settings));
+    }
+    return settings;
+  } catch (error) {
+    console.error("Ошибка при разборе JSON:", error);
+    // обработка ошибки - возврат значения по умолчанию
+    return EASY_FIELD;
   }
-
-  return settings;
 };
 
 // При нажатии на кнопку меняю настройки
 export const Settings = ({ onSettingsUpdated }) => {
   const setSettings = (settings) => {
-    localStorage.setItem("settings", JSON.stringify(settings));
-    onSettingsUpdated(settings);
+    try {
+      localStorage.setItem("settings", JSON.stringify(settings));
+      onSettingsUpdated(settings);
+    } catch (error) {
+      console.error("Ошибка при сохранении настроек в localStorage:", error);
+      // обработка ошибки
+    }
   };
 
   // Активная кнопка соответствует текущим настройкам
