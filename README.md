@@ -1,8 +1,17 @@
-# React + Vite
+# Игра Сапёр на React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+✅ Таблица лидеров и игра на разных роутах.
+✅ Таблица результатов содержит 10 попыток с наименьшим временем решения игры, отсортированные по возрастанию. 
+✅ Данные таблицы и настройки хранятся в LocalStorage.
+✅ Реализация такой генерации мин, чтобы при первом ходе невозможно было проиграть.
+✅ Автоматическая победа, если открыты все клетки, на которых нет мин.
 
-Currently, two official plugins are available:
+Уровни сложности: 
+1. Простой 8x8, 10 мин;
+2. Средний 16x16, 40 мин;
+3. Сложный 32x16, 100 мин (Если ширина < 980 - 16x32)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Стек:
+• React.js
+• Redux Toolkit + Persist
+• Стили - scss
