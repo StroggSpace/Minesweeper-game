@@ -64,6 +64,16 @@
 }
 
 .header__logo-icon {
-  scale: 0.5;
+  width: 50px;
+  height: 50px;
   animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
