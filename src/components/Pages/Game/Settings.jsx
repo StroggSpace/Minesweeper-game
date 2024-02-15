@@ -6,6 +6,7 @@ export const EASY_FIELD = {
   height: 8,
   mines: 10,
   time: 600,
+  name: "easy",
 };
 
 export const DEFAULT_FIELD = {
@@ -13,6 +14,7 @@ export const DEFAULT_FIELD = {
   height: 16,
   mines: 40,
   time: 2400,
+  name: "default",
 };
 
 export const HARD_FIELD = {
@@ -20,6 +22,7 @@ export const HARD_FIELD = {
   height: window.innerWidth > 980 ? 16 : 32,
   mines: 80,
   time: 6000,
+  name: "hard",
 };
 
 //Получаю актуальные настройки из localStorage
@@ -43,12 +46,6 @@ export const Settings = ({ onSettingsUpdated }) => {
   };
 
   // Активная кнопка соответствует текущим настройкам
-  const [activeButton, setActiveButton] = useState(null);
-
-  const handleButtonClick = (settings, buttonName) => {
-    setSettings(settings);
-    setActiveButton(buttonName);
-  };
 
   return (
     <div className="settings__wrapper">
@@ -56,20 +53,22 @@ export const Settings = ({ onSettingsUpdated }) => {
         Выбор <br /> сложности
       </h2>
       <Button
-        className={activeButton === "easy" ? "active" : ""}
-        onClick={() => handleButtonClick(EASY_FIELD, "easy")}
+        className={getCurrentSettings().name === "easy" ? "active-easy" : ""}
+        onClick={() => setSettings(EASY_FIELD)}
       >
         Легкий (8x8)
       </Button>
       <Button
-        className={activeButton === "default" ? "active" : ""}
-        onClick={() => handleButtonClick(DEFAULT_FIELD, "default")}
+        className={
+          getCurrentSettings().name === "default" ? "active-default" : ""
+        }
+        onClick={() => setSettings(DEFAULT_FIELD)}
       >
         Средний (16x16)
       </Button>
       <Button
-        className={activeButton === "hard" ? "active" : ""}
-        onClick={() => handleButtonClick(HARD_FIELD, "hard")}
+        className={getCurrentSettings().name === "hard" ? "active-hard" : ""}
+        onClick={() => setSettings(HARD_FIELD)}
       >
         Сложный (32x16)
       </Button>

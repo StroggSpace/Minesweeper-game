@@ -17,6 +17,17 @@
   }
 }
 
-.active {
-  color: $green;
+.active-easy {
+  color: rgb(71, 253, 71);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.active-default {
+  color: rgb(255, 153, 0);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.active-hard {
+  color: $red;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
