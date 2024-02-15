@@ -1,0 +1,40 @@
+//Глобальные стили
+@import "./components/global/fonts.scss";
+@import "./components/global/variables.scss";
+
+//Компоненты
+@import "./components/Button/Button.scss";
+@import "./components/Header/Header.scss";
+@import "./components/Pages/Game/Game.scss";
+@import "./components/Pages/Leaderboard/Leaderboard.scss";
+@import "./components/Pages/Error/error-page.scss";
+@import "./components/Pages/Game/Settings.scss";
+
+body {
+  background-image: url("./assets/background.jpg");
+  background-size: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-family: $font;
+}
+
+.leaderboard {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
+  gap: 20px;
+
+  & button {
+    padding: 10px 20px;
+    width: 300px;
+  }
+}

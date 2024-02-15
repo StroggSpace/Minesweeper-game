@@ -1,0 +1,237 @@
+@import "../../global/variables.scss";
+
+.game {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  & button {
+    height: 50px;
+    width: 300px;
+  }
+}
+
+.game__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  gap: 20px;
+
+  border: 3px solid $green;
+  backdrop-filter: blur(5px);
+}
+
+.game__board {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px;
+  min-height: 300px;
+}
+
+.game__over {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(250, 71, 71, 0.26);
+  z-index: 10;
+
+  &-title {
+    font-family: $font;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    width: 90vw;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    background-color: rgb(250, 71, 71);
+  }
+}
+
+.game__victory {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(53, 245, 27, 0.356);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &-title {
+    font-family: $font;
+    font-size: medium;
+    width: 90vw;
+    text-align: center;
+    background-color: rgb(71, 250, 86);
+    padding: 10px;
+    margin: 0;
+  }
+
+  &-text {
+    font-family: $font;
+    width: 90vw;
+    text-align: center;
+    background-color: rgb(71, 250, 86);
+    padding: 10px;
+    margin: 0;
+  }
+}
+
+.board__row {
+  display: flex;
+  align-items: center;
+
+  & div {
+    width: 5vw;
+    height: 5vw;
+
+    @media (min-width: 600px) {
+      width: 4vw;
+      height: 4vw;
+    }
+    @media (min-width: 900px) {
+      width: 2.8vw;
+      height: 2.8vw;
+    }
+  }
+}
+
+.board__cell-hidden {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid $black;
+  background-color: $gray;
+  color: transparent;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+.board__cell {
+  font-family: $font;
+  font-size: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid $white;
+  background-color: $gray;
+
+  &.board__cell-one {
+    background-color: $blue;
+  }
+
+  &.board__cell-two {
+    background-color: $green;
+  }
+
+  &.board__cell-three {
+    background-color: $red;
+  }
+
+  &.board__cell-four {
+    background-color: $dark-blue;
+    color: $white;
+  }
+
+  &.board__cell-five {
+    background-color: $brown;
+    color: $white;
+  }
+
+  &.board__cell-six {
+    background-color: $aqua;
+  }
+
+  &.board__cell-seven {
+    background-color: $black;
+    color: $white;
+  }
+
+  &.board__cell-eight {
+    background-color: $white;
+  }
+}
+
+.question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid $black;
+  background-color: $gray;
+  color: transparent;
+  cursor: pointer;
+  user-select: none;
+
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("/src/assets/question-mark.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}
+
+.flagged {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid $black;
+  background-color: $gray;
+  color: transparent;
+  cursor: pointer;
+  user-select: none;
+
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("/src/assets/flag.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}
+
+.game__stat {
+  font-family: $font;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  max-width: 500px;
+  width: 100%;
+  background-color: $gray;
+
+  & p {
+    padding: 0 5px;
+  }
+}

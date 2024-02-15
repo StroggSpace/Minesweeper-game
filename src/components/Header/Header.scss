@@ -1,0 +1,78 @@
+@import "../global/variables.scss";
+
+.header {
+  margin: 0 auto;
+}
+
+.header__logo-container {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: $mobile;
+
+  text-decoration: none;
+  img {
+    height: 100%;
+    animation: rotate 20s linear infinite;
+  }
+
+  &:hover {
+    .header__logo-title {
+      color: $brown;
+    }
+  }
+
+  &:active {
+    .header__logo-title {
+      color: $dark-brown;
+    }
+  }
+}
+
+.header__logo-title {
+  font-family: $font;
+  font-size: 22px;
+  color: $black;
+  position: relative;
+  margin: 0;
+
+  @media (min-width: 416px) {
+    font-size: 30px;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  & button {
+    padding: 10px 20px;
+  }
+  & a {
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+
+    &:hover {
+      background-color: $gray;
+    }
+  }
+}

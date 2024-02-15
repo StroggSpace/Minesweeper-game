@@ -1,0 +1,11 @@
+@import "../../global/variables.scss";
+
+.error-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: $font;
+  text-align: center;
+  background-color: rgba($color: #f0f0f0, $alpha: 0.5);
+}

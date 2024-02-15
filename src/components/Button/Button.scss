@@ -1,0 +1,12 @@
+@import "../global/variables.scss";
+
+.button {
+  font-family: $font;
+  padding: 5px 10px;
+  border: none;
+
+  &:hover {
+    background-color: $gray;
+    cursor: pointer;
+  }
+}
