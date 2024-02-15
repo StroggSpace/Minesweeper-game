@@ -1,4 +1,5 @@
 import Button from "../../Button/Button";
+import { useState } from "react";
 
 export const EASY_FIELD = {
   width: 8,
@@ -40,16 +41,38 @@ export const Settings = ({ onSettingsUpdated }) => {
     localStorage.setItem("settings", JSON.stringify(settings));
     onSettingsUpdated(settings);
   };
+
+  // Активная кнопка соответствует текущим настройкам
+  const [activeButton, setActiveButton] = useState(null);
+
+  const handleButtonClick = (settings, buttonName) => {
+    setSettings(settings);
+    setActiveButton(buttonName);
+  };
+
   return (
     <div className="settings__wrapper">
       <h2 className="settings__title">
         Выбор <br /> сложности
       </h2>
-      <Button onClick={() => setSettings(EASY_FIELD)}>Легкий (8x8)</Button>
-      <Button onClick={() => setSettings(DEFAULT_FIELD)}>
+      <Button
+        className={activeButton === "easy" ? "active" : ""}
+        onClick={() => handleButtonClick(EASY_FIELD, "easy")}
+      >
+        Легкий (8x8)
+      </Button>
+      <Button
+        className={activeButton === "default" ? "active" : ""}
+        onClick={() => handleButtonClick(DEFAULT_FIELD, "default")}
+      >
         Средний (16x16)
       </Button>
-      <Button onClick={() => setSettings(HARD_FIELD)}>Сложный (32x16)</Button>
+      <Button
+        className={activeButton === "hard" ? "active" : ""}
+        onClick={() => handleButtonClick(HARD_FIELD, "hard")}
+      >
+        Сложный (32x16)
+      </Button>
     </div>
   );
 };
