@@ -29,7 +29,7 @@ export default function Game() {
 
       return () => clearInterval(interval);
     }
-  });
+  }, [start, isGameOver, isVictory]);
 
   //Получение настроек
   useEffect(() => {
